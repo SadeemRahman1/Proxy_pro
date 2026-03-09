@@ -31,7 +31,7 @@ import {
 } from 'lucide-react';
 import { Product } from './types';
 
-const INSTAGRAM_ID = 'ood56';
+const INSTAGRAM_ID = 'julie_wood09';
 const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ3pUP5QyfZ2gs850GuJbQ-dwWU5kxsVTTZ8Ylmu9LsPJHGkdRwo0yOuUqMuiy6L3DdIl6zzNEOuVIo/pub?gid=817069434&single=true&output=csv';
 
 export default function App() {
