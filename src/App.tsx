@@ -318,7 +318,7 @@ export default function App() {
                 transition={{ delay: 0.1 }}
                 className="text-lg text-zinc-400 mb-8 max-w-xl"
               >
-                Discover high-quality products, professional sellers, and transparent refund policies. Get FREE products in exchange for reviews.. Join our community of smart shoppers today.
+                Discover high-quality products, professional sellers, and transparent refund policies. Get FREE products in exchange for reviews. Join our community of smart shoppers today.
               </motion.p>
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
