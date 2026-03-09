@@ -23,6 +23,7 @@ import {
   CreditCard,
   FileText,
   MessageSquare,
+  Copy,
   Package,
   Star,
   User,
@@ -142,9 +143,8 @@ export default function App() {
   }, [filteredProducts, currentPage, itemsPerPage]);
 
   const handleOrder = (product: Product) => {
-    const message = encodeURIComponent(`Hi, I want to order Product Number: ${product.product_number}, Keyword: ${product.keywords}`);
-    window.open(`https://www.instagram.com/${INSTAGRAM_ID}/`, '_blank');
-    alert(`Redirecting to Instagram @${INSTAGRAM_ID}.\n\nPlease message: "Selected Product Number: ${product.product_number}, Keyword: ${product.keywords}"`);
+    // Open Instagram chat directly
+    window.open(`https://ig.me/m/${INSTAGRAM_ID}`, '_blank');
   };
 
   if (loading) {
@@ -186,9 +186,9 @@ export default function App() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 bg-zinc-900 rounded-xl flex items-center justify-center text-white font-display font-bold text-xl">
-                O
+                R
               </div>
-              <span className="font-display font-bold text-xl tracking-tight">OOD56 PROXY</span>
+              <span className="font-display font-bold text-xl tracking-tight">ReviewPerk</span>
             </div>
             
             <nav className="hidden md:flex items-center gap-8">
@@ -309,7 +309,7 @@ export default function App() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6"
               >
-                Premium Proxy <br />
+                Premium Review <br />
                 <span className="text-zinc-400">Marketing Solutions</span>
               </motion.h1>
               <motion.p 
@@ -318,7 +318,7 @@ export default function App() {
                 transition={{ delay: 0.1 }}
                 className="text-lg text-zinc-400 mb-8 max-w-xl"
               >
-                Discover high-quality products, professional sellers, and transparent refund policies. Join our community of smart shoppers today.
+                Discover high-quality products, professional sellers, and transparent refund policies. Get FREE products in exchange for reviews.. Join our community of smart shoppers today.
               </motion.p>
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -422,7 +422,7 @@ export default function App() {
                       <div className="mb-6">
                         <div className="bg-zinc-50 p-3 rounded-xl border border-zinc-100">
                           <p className="text-[10px] text-zinc-400 uppercase font-bold mb-1">Price</p>
-                          <p className="font-display font-bold text-zinc-900">{product.Price}</p>
+                          <p className="font-display font-bold text-zinc-900">${product.Price}</p>
                         </div>
                       </div>
 
@@ -533,12 +533,12 @@ export default function App() {
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center gap-2 mb-6">
                 <div className="w-8 h-8 bg-zinc-900 rounded-lg flex items-center justify-center text-white font-display font-bold text-lg">
-                  O
+                  R
                 </div>
-                <span className="font-display font-bold text-lg tracking-tight">OOD56 PROXY</span>
+                <span className="font-display font-bold text-lg tracking-tight">ReviewPerk</span>
               </div>
               <p className="text-zinc-500 max-w-sm mb-6">
-                The most trusted platform for proxy marketing. We connect high-quality brands with professional reviewers to build authentic growth.
+                The most trusted platform for review marketing. We connect high-quality brands with professional reviewers to build authentic growth.
               </p>
               <div className="flex gap-4">
                 <a href="#" className="w-10 h-10 bg-zinc-100 rounded-full flex items-center justify-center text-zinc-600 hover:bg-zinc-900 hover:text-white transition-all">
@@ -567,12 +567,8 @@ export default function App() {
           </div>
           
           <div className="pt-8 border-t border-zinc-100 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-zinc-400">© 2024 OOD56 Proxy Marketing. All rights reserved.</p>
-            <div className="flex items-center gap-2 text-sm text-zinc-400">
-              <span>Made with</span>
-              <div className="w-2 h-2 bg-red-500 rounded-full" />
-              <span>for the community</span>
-            </div>
+            <p className="text-sm text-zinc-400">© 2024 ReviewPerk. All rights reserved.</p>
+           
           </div>
         </div>
       </footer>
@@ -967,7 +963,7 @@ export default function App() {
               <div className="p-8 overflow-y-auto prose prose-zinc max-w-none">
                 <h3 className="text-xl font-bold mb-4">1. Acceptance of Terms</h3>
                 <p className="text-zinc-500 mb-6">
-                  By accessing or using OOD56 PROXY, you agree to be bound by these Terms of Service and our Buyer Policies.
+                  By accessing or using ReviewPerk, you agree to be bound by these Terms of Service and our Buyer Policies.
                 </p>
                 
                 <h3 className="text-xl font-bold mb-4">2. User Conduct</h3>
@@ -982,7 +978,7 @@ export default function App() {
 
                 <h3 className="text-xl font-bold mb-4">4. Limitation of Liability</h3>
                 <p className="text-zinc-500 mb-6">
-                  OOD56 PROXY is a marketing platform. We are not responsible for product quality or shipping issues, which are the responsibility of the respective sellers.
+                  ReviewPerk is a marketing platform. We are not responsible for product quality or shipping issues, which are the responsibility of the respective sellers.
                 </p>
               </div>
             </motion.div>
@@ -1045,7 +1041,7 @@ export default function App() {
 
                 <div className="mb-8">
                   <p className="text-[10px] text-zinc-400 uppercase font-bold mb-1 tracking-wider">Price</p>
-                  <p className="text-2xl font-display font-bold text-zinc-900">{selectedProduct.Price}</p>
+                  <p className="text-2xl font-display font-bold text-zinc-900">${selectedProduct.Price}</p>
                 </div>
 
                 <div className="space-y-6 mb-10">
@@ -1072,7 +1068,27 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-4">
+                  <div className="p-4 bg-zinc-50 rounded-2xl border border-zinc-200 relative group">
+                    <p className="text-[10px] text-zinc-400 uppercase font-bold mb-2 tracking-wider">Order Message (Copy this)</p>
+                    <div className="bg-white p-3 rounded-xl border border-zinc-100 text-sm text-zinc-600 font-mono leading-relaxed break-words">
+                      Hi, I want to order:<br />
+                      Product: {selectedProduct.keywords}<br />
+                      Number: {selectedProduct.product_number}<br />
+                      Store: {selectedProduct.store_name}
+                    </div>
+                    <button 
+                      onClick={() => {
+                        const msg = `Hi, I want to order:\nProduct: ${selectedProduct.keywords}\nNumber: ${selectedProduct.product_number}\nStore: ${selectedProduct.store_name}`;
+                        navigator.clipboard.writeText(msg);
+                        alert('Message copied to clipboard!');
+                      }}
+                      className="mt-2 w-full py-2 bg-zinc-200 hover:bg-zinc-300 text-zinc-700 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2"
+                    >
+                      <Copy size={14} /> Copy Message
+                    </button>
+                  </div>
+
                   <button 
                     onClick={() => handleOrder(selectedProduct)}
                     className="w-full py-4 bg-zinc-900 text-white rounded-2xl font-bold hover:bg-zinc-800 transition-all flex items-center justify-center gap-3 shadow-lg shadow-zinc-900/20"
